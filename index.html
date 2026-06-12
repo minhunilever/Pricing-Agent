@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pricing AI Strategist</title>
+    <link rel="stylesheet" href="./assets/styles.css">
+  </head>
+  <body>
+    <div id="app" class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">CPG price discipline</p>
+          <h1>Pricing AI Strategist</h1>
+        </div>
+        <div class="topbar-actions">
+          <span id="file-status" class="file-status">No workbook loaded</span>
+          <label class="button secondary">
+            <input id="file-input" type="file" accept=".xlsx" hidden>
+            Open workbook
+          </label>
+        </div>
+      </header>
+
+      <main>
+        <section id="upload-panel" class="upload-panel">
+          <div class="upload-copy">
+            <h2>Load the Stackline first-mover workbook</h2>
+            <p>All parsing runs in this browser. The workbook is not uploaded anywhere.</p>
+          </div>
+          <label id="drop-zone" class="drop-zone">
+            <input id="drop-file-input" type="file" accept=".xlsx" hidden>
+            <span class="drop-title">Choose workbook</span>
+            <span class="drop-subtitle">or drop the .xlsx file here</span>
+          </label>
+          <div id="load-message" class="load-message" aria-live="polite"></div>
+        </section>
+
+        <section id="workbench" class="workbench hidden">
+          <nav class="tabs" aria-label="Views">
+            <button class="tab active" data-tab="cockpit">Cockpit</button>
+            <button class="tab" data-tab="recommendations">Recommendations</button>
+            <button class="tab" data-tab="sku">SKU Explorer</button>
+            <button class="tab" data-tab="strategist">Ask Strategist</button>
+            <button class="tab" data-tab="approvals">Approvals</button>
+            <button class="tab" data-tab="data">Data Map</button>
+          </nav>
+
+          <section class="controls" aria-label="Filters">
+            <label>
+              <span>Brand</span>
+              <select id="brand-filter"></select>
+            </label>
+            <label>
+              <span>Retailer</span>
+              <select id="retailer-filter"></select>
+            </label>
+            <label>
+              <span>Channel</span>
+              <select id="channel-filter"></select>
+            </label>
+            <label>
+              <span>Severity</span>
+              <select id="severity-filter"></select>
+            </label>
+            <label>
+              <span>Audience</span>
+              <select id="audience-filter">
+                <option value="executive">Executive summary</option>
+                <option value="rgm">RGM diagnostic</option>
+              </select>
+            </label>
+          </section>
+
+          <div id="cockpit-view" class="tab-view"></div>
+          <div id="recommendations-view" class="tab-view hidden"></div>
+          <div id="sku-view" class="tab-view hidden"></div>
+          <div id="strategist-view" class="tab-view hidden"></div>
+          <div id="approvals-view" class="tab-view hidden"></div>
+          <div id="data-view" class="tab-view hidden"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./assets/app.js" defer></script>
+  </body>
+</html>
